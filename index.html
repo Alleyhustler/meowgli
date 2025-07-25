@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meowgli Spiritual Cat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almendra+SC&family=Eagle+Lake&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --jungle-dark: #0D1F0E;
+            --jungle-medium: #1E3B22;
+            --jungle-light: #2D5A31;
+            --gold-leaf: #C8B273;
+            --ivory: #F0E6D2;
+            --moss: #6B8E4E;
+            --text-glow: rgba(200, 178, 115, 0.5);
+            --vines: #3A5C40;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Eagle Lake', cursive;
+            background-color: var(--jungle-dark);
+            color: var(--ivory);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M10,10 Q15,0 20,10 T30,10 Q35,0 40,10 T50,10 Q55,0 60,10 T70,10 Q75,0 80,10 T90,10" stroke="%233A5C40" stroke-width="1" fill="none" opacity="0.3"/></svg>');
+        }
+
+        /* Hero Section */
+    /* Hero Section */
+    .hero {
+        height: 65vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding: 0 20px;
+        background: linear-gradient(135deg, var(--jungle-dark) 0%, var(--jungle-medium) 100%);
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('beingdss.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 0;
+    }
+
+    .hero-content {
+        text-align: center;
+        max-width: 1200px;
+        z-index: 1;
+        position: relative;
+        top: -270px;
+    }
+
+
+        .hero-title {
+            font-family: 'Almendra SC', serif;
+            font-size: 4.5rem;
+            color: var(--gold-leaf);
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px var(--text-glow);
+            letter-spacing: 3px;
+            animation: pulse 4s infinite;
+            position: relative;
+        }
+
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-leaf), transparent);
+        }
+
+        @keyframes pulse {
+            0% { text-shadow: 0 0 10px var(--text-glow); }
+            50% { text-shadow: 0 0 20px var(--text-glow); }
+            100% { text-shadow: 0 0 10px var(--text-glow); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            font-style: italic;
+            margin-bottom: 3rem;
+            color: rgba(240, 230, 210, 0.9);
+            font-family: 'IM Fell English SC', serif;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-down:hover {
+            transform: translateX(-50%) translateY(5px);
+        }
+
+        .scroll-down-arrow {
+            width: 30px;
+            height: 30px;
+            border-right: 2px solid var(--gold-leaf);
+            border-bottom: 2px solid var(--gold-leaf);
+            transform: rotate(45deg);
+            margin: 0 auto;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: rotate(45deg) translateY(0); }
+            40% { transform: rotate(45deg) translateY(-10px); }
+            60% { transform: rotate(45deg) translateY(-5px); }
+        }
+
+        /* Meme Relics Section */
+        .meme-relics {
+            padding: 100px 20px;
+            background-color: var(--jungle-medium);
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid var(--vines);
+            border-bottom: 1px solid var(--vines);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M10,90 Q25,70 40,90 T70,90 Q85,70 100,90" stroke="%232D5A31" stroke-width="1" fill="none" opacity="0.2"/></svg>');
+        }
+
+        .section-title {
+            font-family: 'Almendra SC', serif;
+            font-size: 2.5rem;
+            color: var(--gold-leaf);
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-leaf), transparent);
+        }
+
+        .relics-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 30px;
+            padding: 20px 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .relics-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .relic-item {
+            scroll-snap-align: center;
+            min-width: 300px;
+            width: 300px;
+            height: 400px;
+            background-color: var(--jungle-light);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px 20px;
+            border: 1px solid rgba(200, 178, 115, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .relic-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(200, 178, 115, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .relic-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border-color: var(--gold-leaf);
+        }
+
+        .relic-item:hover::before {
+            opacity: 1;
+        }
+
+        .relic-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--gold-leaf);
+            filter: sepia(30%) brightness(90%);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .relic-item:hover .relic-image {
+            filter: sepia(0%) brightness(100%);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--text-glow);
+        }
+
+        .relic-title {
+            font-family: 'Almendra SC', serif;
+            color: var(--gold-leaf);
+            font-size: 1.3rem;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .relic-lore {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(13, 31, 14, 0.9);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            font-style: italic;
+            text-align: center;
+            border-top: 1px solid var(--gold-leaf);
+            font-family: 'IM Fell English SC', serif;
+        }
+
+        .relic-item:hover .relic-lore {
+            transform: translateY(0);
+        }
+
+        /* Scroll of Fur-tune Section */
+        .fortune-section {
+            padding: 100px 20px;
+            background-color: var(--jungle-dark);
+            position: relative;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0,20 Q25,10 50,20 T100,20" stroke="%233A5C40" stroke-width="1" fill="none" opacity="0.2"/><path d="M0,50 Q25,40 50,50 T100,50" stroke="%233A5C40" stroke-width="1" fill="none" opacity="0.2"/><path d="M0,80 Q25,70 50,80 T100,80" stroke="%233A5C40" stroke-width="1" fill="none" opacity="0.2"/></svg>');
+        }
+
+        .fortune-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--jungle-medium);
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            border: 1px solid var(--gold-leaf);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M10,10 L90,10 L90,90 L10,90 Z" stroke="%23C8B273" stroke-width="0.5" fill="none" opacity="0.2"/></svg>');
+        }
+
+        .fortune-container::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(200, 178, 115, 0.3);
+            pointer-events: none;
+            border-radius: 3px;
+        }
+
+        .fortune-title {
+            font-family: 'Almendra SC', serif;
+            color: var(--gold-leaf);
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .fortune-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background-color: var(--gold-leaf);
+        }
+
+        .fortune-text {
+            font-size: 1.2rem;
+            color: var(--ivory);
+            text-align: center;
+            margin-bottom: 30px;
+            min-height: 100px;
+            font-style: italic;
+            font-family: 'IM Fell English SC', serif;
+        }
+
+        .fortune-button {
+            display: block;
+            margin: 0 auto;
+            padding: 12px 30px;
+            background-color: transparent;
+            color: var(--gold-leaf);
+            border: 1px solid var(--gold-leaf);
+            font-family: 'Almendra SC', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fortune-button:hover {
+            background-color: var(--gold-leaf);
+            color: var(--jungle-dark);
+            box-shadow: 0 0 15px var(--text-glow);
+        }
+
+        .fortune-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(240, 230, 210, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .fortune-button:hover::before {
+            left: 100%;
+        }
+
+        .copy-button {
+            background: none;
+            border: none;
+            color: var(--ivory);
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            margin: 15px auto 0;
+            transition: color 0.3s ease;
+            font-family: 'IM Fell English SC', serif;
+        }
+
+        .copy-button:hover {
+            color: var(--gold-leaf);
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            padding: 150px 20px;
+            background: linear-gradient(135deg, var(--jungle-dark) 0%, var(--jungle-medium) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid var(--vines);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M0,100 Q50,150 100,100 T200,100" stroke="%233A5C40" stroke-width="2" fill="none" opacity="0.1"/></svg>');
+        }
+
+        .cta-title {
+            font-family: 'Almendra SC', serif;
+            font-size: 3rem;
+            color: var(--gold-leaf);
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px var(--text-glow);
+        }
+
+        .cta-subtitle {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            color: rgba(240, 230, 210, 0.9);
+            font-family: 'IM Fell English SC', serif;
+        }
+
+        .cta-button {
+            padding: 15px 40px;
+            background-color: transparent;
+            color: var(--gold-leaf);
+            border: 1px solid var(--gold-leaf);
+            font-family: 'Almendra SC', serif;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--gold-leaf);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover {
+            color: var(--jungle-dark);
+        }
+
+        .cta-button:hover::before {
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 20px;
+            text-align: center;
+            background-color: var(--jungle-dark);
+            border-top: 1px solid rgba(200, 178, 115, 0.2);
+            font-size: 0.9rem;
+            color: rgba(240, 230, 210, 0.6);
+            font-family: 'IM Fell English SC', serif;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta-title {
+                font-size: 2.2rem;
+            }
+            
+            .cta-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="jungle-vines"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Meowgli Spiritual Cat</h1>
+            <p class="hero-subtitle">"Surviving the jungle is similar to trenching, everything could just top blast"</p>
+        </div>
+        <div class="scroll-down" onclick="scrollToSection('.meme-relics')">
+            <div class="scroll-down-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Meme Relics Section -->
+    <section class="meme-relics">
+        <h2 class="section-title">The Meme Relics</h2>
+        <div class="relics-container">
+            <!-- Relic 1 -->
+            <div class="relic-item">
+                <img src="Being (1).png" alt="Meowgli as The Gopnik Whisperer" class="relic-image floating">
+                <h3 class="relic-title">The Gopnik Whisperer</h3>
+                <p class="relic-lore">"He who sits upon the concrete throne, adjudicating with a single slow blink."</p>
+            </div>
+            
+            <!-- Relic 2 -->
+            <div class="relic-item">
+                <img src="Being (10).png" alt="Meowgli as He Who Spideys" class="relic-image floating">
+                <h3 class="relic-title">He Who Spideys</h3>
+                <p class="relic-lore">"Dangling from the cosmic vines, neither falling nor climbing - simply being."</p>
+            </div>
+            
+            <!-- Relic 3 -->
+            <div class="relic-item">
+                <img src="Being (3).png" alt="Meowgli as The Tourist of Time" class="relic-image floating">
+                <h3 class="relic-title">The Tourist of Time</h3>
+                <p class="relic-lore">"A traveler through epochs, leaving hairballs in every era as his mark."</p>
+            </div>
+            
+            <!-- Relic 4 -->
+            <div class="relic-item">
+                <img src="Being (4).png" alt="Meowgli as The Void Gazer" class="relic-image floating">
+                <h3 class="relic-title">The Void Gazer</h3>
+                <p class="relic-lore">"What he sees in the jungle shadows makes the darkness blink first."</p>
+            </div>
+            
+            <!-- Relic 5 -->
+            <div class="relic-item">
+                <img src="Being (5).png" alt="Meowgli as The Loaf Ascendant" class="relic-image floating">
+                <h3 class="relic-title">The Loaf Ascendant</h3>
+                <p class="relic-lore">"Perfect form achieved - no paws visible, only enlightenment."</p>
+            </div>
+            
+            <!-- Relic 6 -->
+            <div class="relic-item">
+                <img src="Being (5).png" alt="Meowgli as The Keyboard Conqueror" class="relic-image floating">
+                <h3 class="relic-title">The Jungle Whisperer</h3>
+                <p class="relic-lore">"The vines part for him, the trees lean close to hear his wisdom."</p>
+            </div>
+            
+            <!-- Relic 7 -->
+            <div class="relic-item">
+                <img src="Being (6).png" alt="Meowgli as The Box Philosopher" class="relic-image floating">
+                <h3 class="relic-title">The Ancient Stalker</h3>
+                <p class="relic-lore">"His shadow moves before him, warning the jungle of his approach."</p>
+            </div>
+            
+            <!-- Relic 8 -->
+            <div class="relic-item">
+                <img src="Being (7).png" alt="Meowgli as The Midnight Zoomer" class="relic-image floating">
+                <h3 class="relic-title">The Moonlight Dancer</h3>
+                <p class="relic-lore">"When the jungle sleeps, he dances with fireflies in sacred patterns."</p>
+            </div>
+            
+            <!-- Relic 9 -->
+            <div class="relic-item">
+                <img src="Being (8).png" alt="Meowgli as The Treat Alchemist" class="relic-image floating">
+                <h3 class="relic-title">The Fruit Diviner</h3>
+                <p class="relic-lore">"He knows which mangoes are sweetest without ever taking a bite."</p>
+            </div>
+            
+            <!-- Relic 10 -->
+            <div class="relic-item">
+                <img src="Being (9).png" alt="Meowgli as The Belly Trap" class="relic-image floating">
+                <h3 class="relic-title">The River Guardian</h3>
+                <p class="relic-lore">"The waters still when he drinks, showing him visions of past and future."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll of Fur-tune Section -->
+    <section class="fortune-section">
+        <div class="fortune-container">
+            <h2 class="fortune-title">The Scroll of Fur-tune</h2>
+            <p class="fortune-text" id="fortune-text">Whisper your desire to the jungle cat and receive your prophecy...</p>
+            <button class="fortune-button" onclick="generateFortune()">Whisper My Prophecy</button>
+            <button class="copy-button" onclick="copyFortune()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 5px;">
+                    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                </svg>
+                Copy Prophecy
+            </button>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <h2 class="cta-title">Awaken Meowgli</h2>
+        <p class="cta-subtitle">You've seen his forms. Now let him take yours.</p>
+        <button class="cta-button">Open the Portal</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>The Ancient Order of Meowgli © 2023. All jungle rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        function scrollToSection(selector) {
+            document.querySelector(selector).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Fortune generator
+        const fortunes = [
+            "When the third moon rises, you shall find the treats you seek, but only if you meow thrice to the east.",
+            "Beware the red jungle flower, for it is both your salvation and your curse. To chase it is to know eternity.",
+            "A stranger will offer you river fish today. Accept it, for it is blessed by the ancient ones.",
+            "The hollow log you ignore today will be the throne you regret tomorrow.",
+            "The vines shall part for you when you approach with slow blinks and tail held high.",
+            "The hairball you cough up tomorrow contains the answer you seek. Interpret its form carefully.",
+            "When the fireflies dance in formation, your path through the jungle will be revealed.",
+            "The next sunbeam that filters through the canopy will recharge your spirit by 73%. Use this power wisely.",
+            "A fruit shall fall for you when the wind blows from the west. Prepare your finest meow.",
+            "Your scratching tree is aligned with celestial energies today. Sharpen your claws and your mind.",
+            "The next monkey who chatters at you carries important news from the jungle council.",
+            "Your nap position at 3:17 PM will reveal your true spiritual form to those who can see.",
+            "The jungle whispers at dawn. Listen with your whiskers to receive its message."
+        ];
+
+        function generateFortune() {
+            const randomIndex = Math.floor(Math.random() * fortunes.length);
+            const fortuneText = document.getElementById('fortune-text');
+            fortuneText.style.opacity = 0;
+            
+            setTimeout(() => {
+                fortuneText.textContent = fortunes[randomIndex];
+                fortuneText.style.opacity = 1;
+            }, 300);
+        }
+
+        // Copy fortune to clipboard
+        function copyFortune() {
+            const fortuneText = document.getElementById('fortune-text').textContent;
+            navigator.clipboard.writeText(fortuneText).then(() => {
+                alert('Prophecy copied to clipboard! Share your jungle wisdom.');
+            });
+        }
+
+        // Add floating animation to relic images with delay
+        document.addEventListener('DOMContentLoaded', () => {
+            const relics = document.querySelectorAll('.relic-image');
+            relics.forEach((relic, index) => {
+                // Add delay to animation
+                relic.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+    </script>
+</body>
+</html>
